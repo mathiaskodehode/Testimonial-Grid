@@ -25,26 +25,5 @@ export function CreateElement(tag, options = {}) {
     if (typeof options.alt === "string") {
         element.alt = options.alt;
     }
-    if (typeof options.href === "string") {
-        element.href = options.href;
-    }
-    if (typeof options.for === "string") {
-        element.htmlFor = options.for;
-    }
-    if (typeof options.type === "string") {
-        element.type = options.type;
-    }
-    if (typeof options.name === "string") {
-        element.name = options.name;
-    }
-    if (typeof options.placeholder === "string") {
-        element.placeholder = options.placeholder;
-    }
-    if (typeof options.onclick === "function") {
-        element.onclick = options.onclick;
-    }
-    if (typeof options.required === "boolean") {
-        element.required = options.required;
-    }
     return element;
 }

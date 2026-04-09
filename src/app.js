@@ -5,37 +5,39 @@ import { testimonials } from "./testimonial.js";
 export function Init() {
     const container = CreateElement("div", {
         parent: main,
+        class: "testimonials",
     });
     testimonials.forEach(t => {
-        const testimonialContainer = CreateElement("div", {
+        const testimonial = CreateElement("div", {
             parent: container,
-            class: "testimonialContainer",
         });
+        const profileContainer = CreateElement("div", { parent: testimonial, class: "profile" });
         // profile picture
         CreateElement("img", {
-            parent: testimonialContainer,
+            parent: profileContainer,
             src: t.imageSrc,
             alt: "portrait of reivewer",
         });
+        const nameAndTitleContainer = CreateElement("div", { parent: profileContainer });
         // name
         CreateElement("h2", {
-            parent: testimonialContainer,
+            parent: nameAndTitleContainer,
             innerText: t.userName,
         });
         // title
-        CreateElement("h3", {
-            parent: testimonialContainer,
+        CreateElement("p", {
+            parent: nameAndTitleContainer,
             innerText: t.userTitle,
         });
         // content title
         CreateElement("h1", {
-            parent: testimonialContainer,
+            parent: testimonial,
             innerText: t.contentTitle,
         });
         // content body
         CreateElement("p", {
-            parent: testimonialContainer,
-            innerText: t.contentBody,
+            parent: testimonial,
+            innerText: `" ${t.contentBody} "`,
         });
     });
 }
