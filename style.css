@@ -12,8 +12,10 @@
     --grey500: hsl(217, 19%, 35%);
     --darkBlue: hsl(219, 29%, 14%);
     --black: hsl(0, 0%, 7%);
-    /* font */
+    /* sizes */
     --defaultFontSize: 13px;
+    --cardWidth: 250px;
+    --cardHeight: 300px
 }
 
 * {
@@ -25,9 +27,14 @@
 
 body {
     background-color: var(--grey100);
-    margin: 150px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    margin: 100px 0 100px 0;
 }
 
 h1 {
@@ -46,8 +53,8 @@ p {
 .testimonials {
     display: grid;
     grid-auto-flow: column dense;
-    grid-template-columns: 250px 250px 250px 250px;
-    grid-template-rows: 300px 300px 300px 300px;
+    grid-template-columns: var(--cardWidth) var(--cardWidth) var(--cardWidth) var(--cardWidth);
+    grid-template-rows: var(--cardHeight);
     gap: 32px;
 }
 
@@ -128,4 +135,89 @@ p {
     border-radius: 1234px;
     width: 30px;
     height: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .testimonials {
+        display: grid;
+        grid-auto-flow: column dense;
+        grid-template-columns: var(--cardWidth) var(--cardWidth) var(--cardWidth);
+        grid-template-rows: var(--cardHeight);
+        gap: 32px;
+    }
+
+    /* move kira card to bottom */
+    .testimonials> :nth-child(5) {
+        grid-row: 3 / span 2;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .testimonials {
+        display: grid;
+        grid-auto-flow: column dense;
+        grid-template-columns: var(--cardWidth) var(--cardWidth);
+        grid-template-rows: var(--cardHeight);
+        gap: 32px;
+    }
+
+    /* jonathan */
+    .testimonials> :nth-child(2) {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    /* jeanette */
+    .testimonials> :nth-child(3) {
+        grid-column: 2;
+        grid-row: 3
+    }
+
+    /* patrick */
+    .testimonials> :nth-child(4) {
+        grid-column: 1 / span 2;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
+    .testimonials {
+        display: grid;
+        grid-auto-flow: column dense;
+        grid-template-columns: var(--cardWidth);
+        grid-template-rows: var(--cardHeight);
+        gap: 32px;
+    }
+
+    /* daniel */
+    .testimonials> :nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    /* jonathan */
+    .testimonials> :nth-child(2) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    /* jeanette */
+    .testimonials> :nth-child(3) {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    /* patrick */
+    .testimonials> :nth-child(4) {
+        grid-column: 1;
+        grid-row: 5 / span 2;
+    }
+
+    /* kira */
+    .testimonials> :nth-child(5) {
+        grid-column: 1;
+        grid-row: 7 / span 2;
+    }
 }
